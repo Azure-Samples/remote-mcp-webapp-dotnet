@@ -43,12 +43,16 @@ The MCP server provides an API that follows the Model Context Protocol specifica
    ```bash
    cd src
    ```
-3. Run the project:
+3. Install required packages
+   ```bash
+   dotnet restore
+   ```
+4. Run the project:
    ```bash
    dotnet run
    ```
-4. The MCP server will be available at `https://localhost:5000`
-5. When you're done, press Ctrl+C in the terminal to stop the app
+5. The MCP server will be available at `https://localhost:5000`
+6. When you're done, press Ctrl+C in the terminal to stop the app
 
 ### Connect to the Local MCP Server
 
