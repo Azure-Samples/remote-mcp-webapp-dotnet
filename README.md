@@ -43,7 +43,11 @@ The MCP server provides an API that follows the Model Context Protocol specifica
    ```bash
    cd src
    ```
-3. Run the project:
+3. Install required packages
+   ```bash
+   dotnet restore
+   ```
+4. Run the project:
    ```bash
    dotnet run
    ```
