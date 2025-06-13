@@ -47,8 +47,19 @@ The MCP server provides an API that follows the Model Context Protocol specifica
    ```bash
    dotnet run
    ```
-4. The MCP server will be available at `https://localhost:5000`
+4. The MCP server will be available at `http://localhost:5000`
 5. When you're done, press Ctrl+C in the terminal to stop the app
+
+### Testing the Available Tools
+
+The server provides these tools:
+- **Multiplication**: `Multiply` - Multiplies two numbers
+- **Temperature Conversion**: 
+  - `CelsiusToFahrenheit` - Converts temperature from Celsius to Fahrenheit
+  - `FahrenheitToCelsius` - Converts temperature from Fahrenheit to Celsius
+- **Weather Data**:
+  - `GetAlerts` - Get active weather alerts for a US state (provide state code like "CA", "TX")
+  - `GetForecast` - Get weather forecast for coordinates (provide latitude and longitude)
 
 ### Connect to the Local MCP Server
 
@@ -56,7 +67,7 @@ The MCP server provides an API that follows the Model Context Protocol specifica
 
 1. **Add MCP Server** from command palette and add the URL to your running server's HTTP endpoint:
    ```
-   http://0.0.0.0:5000
+   http://localhost:5000
    ```
 2. **List MCP Servers** from command palette and start the server
 3. In Copilot chat agent mode, enter a prompt to trigger the tool:
@@ -66,8 +77,9 @@ The MCP server provides an API that follows the Model Context Protocol specifica
 4. When prompted to run the tool, consent by clicking **Continue**
 
 You can ask things like:
-- What's the weather forecast in NYC?
+- What's the weather forecast for San Francisco? (latitude: 37.7749, longitude: -122.4194)
 - Are there any weather alerts in California?
+- Convert 25 degrees Celsius to Fahrenheit
 
 #### Using MCP Inspector
 
@@ -75,11 +87,11 @@ You can ask things like:
    ```bash
    npx @modelcontextprotocol/inspector
    ```
-2. CTRL+click the URL displayed by the app (e.g. http://0.0.0.0:5173/#resources)
+2. CTRL+click the URL displayed by the app (e.g. http://localhost:5173/#resources)
 3. Set the transport type to `HTTP`
 4. Set the URL to your running server's HTTP endpoint and **Connect**:
    ```
-   http://0.0.0.0:5000
+   http://localhost:5000
    ```
 5. **List Tools**, click on a tool, and **Run Tool**
 
@@ -129,8 +141,10 @@ azd down
 
 ## Custom Tools
 
-The project includes a sample tool in the `Tools` directory:
-- `MultiplicationTool.cs` - A simple tool that demonstrates how to implement MCP tools
+The project includes several sample tools in the `Tools` directory:
+- `MultiplicationTool.cs` - Performs multiplication operations
+- `TemperatureConverterTool.cs` - Converts between Celsius and Fahrenheit
+- `WeatherTools.cs` - Retrieves weather forecasts and alerts
 
 To add new tools:
 1. Create a new class in the `Tools` directory
